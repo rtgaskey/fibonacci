@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/chi"
@@ -32,7 +32,10 @@ func main() {
 
 	port := "8080"
 
-	log.Printf("Starting server on http://localhost:%s", port)
+	// log.Printf("Starting server on http://0.0.0.0:%s", port)
 
-	http.ListenAndServe(":"+port, router)
+	http.ListenAndServe("0.0.0.0:"+port, router)
+
+	fmt.Println("GOT HERE")
+	recover()
 }
